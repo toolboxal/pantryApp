@@ -9,7 +9,12 @@ export default function HomePage() {
         alignItems: 'center',
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Text style={{ fontFamily: 'Bitter_400Regular' }}>
+        This is a test passage. hahahahahahah
+      </Text>
+      <Text className="text-red-500">
+        This is a test passage. hahahahahahah
+      </Text>
     </View>
   )
 }
