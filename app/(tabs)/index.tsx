@@ -9,12 +9,12 @@ export default function HomePage() {
         alignItems: 'center',
       }}
     >
-      <Text style={{ fontFamily: 'Bitter_400Regular' }}>
-        This is a test passage. hahahahahahah
+      <Text className="font-poppins">Regular Poppins Text</Text>
+      <Text className="font-poppins-bold">Bold Poppins Text</Text>
+      <Text className="font-poppins-black bg-primary-700">
+        Black Poppins Text
       </Text>
-      <Text className="text-red-500">
-        This is a test passage. hahahahahahah
-      </Text>
+      <Text className="font-bitter text-primary-500">Regular Bitter Text</Text>
     </View>
   )
 }

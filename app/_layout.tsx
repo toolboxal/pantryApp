@@ -45,6 +45,9 @@ import {
   Poppins_900Black_Italic,
 } from '@expo-google-fonts/poppins'
 import '../global.css'
+import { migrate } from 'drizzle-orm/expo-sqlite/migrator'
+import db, { expoDB } from '@/db/db'
+import migrations from '@/drizzle/migrations'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -53,12 +56,17 @@ export default function RootLayout() {
     Poppins_400Regular,
     Bitter_400Regular,
   })
-
   useEffect(() => {
-    if (loaded || error) {
-      SplashScreen.hideAsync()
+    async function prepare() {
+      await migrate(db, migrations)
+      if (loaded || error) {
+        SplashScreen.hideAsync()
+      }
     }
+    prepare()
   }, [loaded, error])
+
+  useDrizzleStudio(expoDB)
 
   if (!loaded && !error) {
     return null

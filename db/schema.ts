@@ -6,7 +6,14 @@ export const pantryItems = sqliteTable('pantry_items', {
   dateBought: text('date_bought').notNull(),
   dateExpiry: text('date_expiry').notNull(),
   cost: real('cost').notNull().default(0),
-  category: text('category').notNull(),
-  photoUri: text('photo_uri').default(''),
   consumed: int('consumed', { mode: 'boolean' }).default(false),
+  quantity: int('quantity').notNull().default(1),
+  amount: text('amount', { enum: ['empty', 'low', 'half', 'full'] })
+    .notNull()
+    .default('full'),
+  category: text('category', {
+    enum: ['food', 'hygiene', 'pets', 'others'],
+  }).notNull(),
+  location: text('location').notNull(),
+  remarks: text('remarks').notNull().default(''),
 })
