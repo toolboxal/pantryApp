@@ -1,4 +1,5 @@
 import { int, sqliteTable, text, real } from 'drizzle-orm/sqlite-core'
+import { createInsertSchema } from 'drizzle-zod'
 
 export const pantryItems = sqliteTable('pantry_items', {
   id: int().primaryKey({ autoIncrement: true }),
@@ -17,3 +18,5 @@ export const pantryItems = sqliteTable('pantry_items', {
   location: text('location').notNull(),
   remarks: text('remarks').notNull().default(''),
 })
+
+export const pantryItemsInsertSchema = createInsertSchema(pantryItems)

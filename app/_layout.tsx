@@ -54,6 +54,9 @@ SplashScreen.preventAutoHideAsync()
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+    Poppins_700Bold,
     Bitter_400Regular,
   })
   useEffect(() => {
@@ -73,7 +76,7 @@ export default function RootLayout() {
   }
   return (
     <SQLiteProvider databaseName="app.db">
-      <Stack>
+      <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" />
       </Stack>
     </SQLiteProvider>

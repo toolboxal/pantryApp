@@ -3,11 +3,7 @@ import { Text, View } from 'react-native'
 export default function HomePage() {
   return (
     <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
+      className='bg-slate-400'
     >
       <Text className="font-poppins">Regular Poppins Text</Text>
       <Text className="font-poppins-bold">Bold Poppins Text</Text>
